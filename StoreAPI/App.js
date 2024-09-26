@@ -15,12 +15,13 @@ const notFound = require('./Middleware/notFound')
 app.use(express.json()) //Not useful but john said make it a habit
 
 //Routes
+const ProductRouter = require('./Routes/Products')
 
 app.get('/',(req, res)=>{
     res.send(`<h1> Store API's home get req success </h1> <a href ="/api/v1/products" > Products route here </a>`)
 })
 
-app.use('/api/v1/products', /*Controllers here*/)
+app.use('/api/v1/products', ProductRouter/*Controllers here*/ /* Adding ProductRouter*/)
 
 //ErrorHMW
 app.use(notFound);
